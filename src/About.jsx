@@ -32,7 +32,6 @@ const About = () => {
                 Necessitatibus rem expedita a vel tempore omnis dolorem
                 asperiores quam. Repellat, ad.
               </p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quibusdam ab, error pariatur nobis atque aspernatur provident hic fugiat architecto repellendus deleniti nulla quisquam obcaecati voluptatibus consequatur est fuga laudantium dicta vitae eum ut. Impedit alias optio consequuntur suscipit sed pariatur laboriosam culpa. Sequi, odio perferendis possimus in aspernatur magnam?</p>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Necessitatibus rem expedita a vel tempore omnis dolorem
