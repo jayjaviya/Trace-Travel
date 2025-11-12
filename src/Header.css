@@ -1,0 +1,256 @@
+*{
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* <---------------------------------------
+-------(Desktop size)----------------------
+---------------------------------------> */
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    align-items: center;
+}
+
+.navbar p{
+    font-size: 35px;
+    color:#fb8500;
+    font-weight: 400;
+}
+
+.nav_ul{
+    display: flex;
+    gap: 25px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav_ul a{
+    position: relative;
+    font-weight: 500;
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.nav_ul a:hover{
+    color: #fb8500;
+}
+
+.nav_ul a::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #fb8500;
+    transition: all 0.5s;
+}
+
+.nav_ul a:hover::before{
+    width: 100%;
+
+}
+.nav_ul a span{
+    color: #fb8500;
+}
+
+.nav_element a i {
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.nav_icon{
+    display: none;
+}
+
+i.fa.fa-bars{
+    display: none;
+}
+
+.Header_Btns {
+    display: flex;
+    gap: 10px;
+}
+
+@media (min-width: 769px) and (max-width: 1023px){
+
+    .navbar {
+        height: 60px;
+    }
+
+    .navbar p {
+        font-size: 28px;
+    }
+
+    .nav_ul {
+        gap: 10px;
+    }
+
+    .nav_ul a {
+        font-size: 13px;
+    }
+
+    .nav_element a i {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 768px){
+
+    .container{
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .nav_ul{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: whitesmoke;
+        top: 49px;
+        z-index: 1111;
+        right: 0;
+        width: 50%;
+        text-align: center;
+        padding: 15px 0;
+        opacity: 0;
+        gap: 28px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav_ul.active{
+        opacity: 1;
+    }
+
+    i.fa.fa-bars{
+        display: block;
+        font-size: 30px;
+        color: #fb8500;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    .nav_search{
+        display: none;
+    }
+
+    .navbar {
+        height: 40px;
+    }
+
+    .navbar p {
+        font-size: 22px;
+    }
+}
+
+.dark-mode-toggle {
+    width: 30px; 
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent; 
+    border-radius: 50%;
+    transition: background-color 0.3s; 
+}
+
+.dark-mode-toggle i {
+    font-size: 20px;
+    color: black;
+    line-height: 1;
+}
+
+.dark-mode-toggle:hover {
+    background-color: transparent; 
+}
+
+body.dark .dark-mode-toggle i {
+    color: #ffb158;
+}
+
+body.dark .dark-mode-toggle:hover {
+    background-color: transparent; 
+}
+
+
+/* Add these rules to your Header.css file */
+
+/* Dark Theme Styles */
+body.dark {
+    background-color: #1a1a1a; /* Dark background for the whole page */
+    color: #f0f0f0;            /* Light text color for the whole page */
+}
+
+body.dark .navbar {
+    background-color: #1a1a1a; /* Slightly lighter dark for the navbar background */
+}
+
+body.dark .nav_ul a {
+    color: #f0f0f0; /* White/light gray links */
+}
+
+body.dark .nav_ul a:hover {
+    color: #ffb158; /* Orange hover color */
+}
+
+body.dark .nav_ul a::before {
+    background-color: #ffb158; /* Orange underline on hover */
+}
+
+body.dark i.fa.fa-bars {
+    color: #ffb158; /* Orange color for the hamburger icon */
+}
+
+body.dark .dark-mode-toggle {
+    color: #ffb158; /* Orange color for the toggle icon */
+}
+
+body.dark .navbar p{
+    color: #ffb158; /* Ensure logo/title stays orange */
+}
+
+body.dark .about_read_more{
+    color: #f0f0f0;
+}
+
+body.dark .rightside_list ul li{
+    color: #f0f0f0;
+}
+
+body.dark .box{
+    background-color: #f0f0f0;
+}
+
+body.dark .update_info h3{
+    color: #f0f0f0;
+}
+
+body.dark .about_info_part a {
+    color: #f0f0f0;
+}
+
+body.dark .read_more span{
+    color: #f0f0f0;
+}
+
+body.dark .fill_detail input{
+    background-color: #f0f0f0;
+}
+
+/* Mobile Nav Menu in Dark Mode */
+@media (max-width: 768px){
+    body.dark .nav_ul {
+        background-color: #242424; /* Dark background for the mobile menu */
+    }
+}

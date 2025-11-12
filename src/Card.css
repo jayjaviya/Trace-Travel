@@ -1,0 +1,86 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  
+  .app-container {
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .product-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #334155;
+  }
+  
+  .product-price {
+    font-size: 1.5rem;
+    color: #64748b;
+    margin: 10px 0;
+  }
+  
+  .counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .cart-count {
+    font-size: 40px;
+    color: #3b82f6; 
+  }
+  
+  .add-button {
+    background-color: #2563eb;
+    color: white;
+    border-radius: 100px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border: none;
+
+  }
+  
+  .remove-button {
+    background-color: #ef4444;
+    color: white;
+    border-radius: 100px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border: none;
+  }   
+  
+  .iphone{
+    width: 300px;
+    height: 230px;
+  }
+  
+  element.style {
+    display: flex;
+  }
+  
+  .card-listing {
+    display: flex;
+    justify-content: space-evenly;
+  }
