@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css'; 
+import banner4 from '../public/images/banner4.jpg'
+import duck from '../public/images/duck.jpg'
 
 
 // ------------------------------------------------------------------
@@ -285,7 +287,7 @@ const Home = () => {
         <div className="container">
           <div className="combine_info">
             <div className="leftside">
-              <img src="../public/images/duck.jpg" alt="Duck" />
+              <img src={duck} alt="Duck" />
             </div>
             <div className="rightside">
               <h3 className="right_row1">Why choose us</h3>
@@ -399,7 +401,7 @@ const Home = () => {
               soluta officia! Lorem ipsum dolor, sit amet
             </p>
             <a href="https://www.youtube.com/embed/5oSjrpMBt8o?si=tagnNNYFF55Uyj-h">
-              <img src="../public/images/banner4.jpg" alt="Travel Banner" />
+              <img src={banner4} alt="Travel Banner" />
             </a>
           </div>
         </div>
