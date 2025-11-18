@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css'; 
 import banner4 from '../public/images/banner4.jpg'
 import duck from '../public/images/duck.jpg'
+import avtar from '../public/images/img_avatar.jpg'
 
 
 // ------------------------------------------------------------------
@@ -422,7 +423,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Jay Javiya</span>
@@ -438,7 +439,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">yash patel</span>
@@ -454,7 +455,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Bhargav Parmar</span>
@@ -470,7 +471,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Zeel Borad</span>
@@ -486,7 +487,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Meet Golakiya</span>
@@ -502,7 +503,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Rushi Kachhadiya</span>
