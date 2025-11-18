@@ -404,7 +404,7 @@ i.fa.fa-bars{
 /* section(autoplay_counter) */
 
 .autoplay_counter{
-    background: url(public/images/banner1.jpg);
+    background: url(../public/images/banner1.jpg);
     background-size: cover;
 }
 
