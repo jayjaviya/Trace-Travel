@@ -16,6 +16,8 @@ const handleRemove = () => {
 return (
   <div className="product-card">
 
+    <div></div>
+
     <img className="iphone"src="src/assets/iphone.jpg" alt="" />
     
     <h2 className="product-name">iphone 17 pro max</h2>
