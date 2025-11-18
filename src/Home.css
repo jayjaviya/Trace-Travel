@@ -120,23 +120,23 @@ i.fa.fa-bars{
 }
 
 .home_page:nth-child(1) {
-    background-image: url(src/assets/images/banner1.jpg);
+    background-image: url(public/images/banner1.jpg);
     color: #000c049a;
 
 }
 
 .home_page:nth-child(2) {
-    background-image: url(src/assets/images/banner2.jpg);
+    background-image: url(public/images/banner2.jpg);
     color: #000c049a;
 }
 
 .home_page:nth-child(3) {
-    background-image: url(src/assets/images/banner3.jpg);
+    background-image: url(public/images/banner3.jpg);
     color: #000c049a;
 }
 
 .home_page:nth-child(4) {
-    background-image: url(src/assets/images/banner4.jpg);
+    background-image: url(public/images/banner4.jpg);
     color: #000c049a;
 }
 
@@ -404,7 +404,7 @@ i.fa.fa-bars{
 /* section(autoplay_counter) */
 
 .autoplay_counter{
-    background: url(src/assets/images/banner1.jpg);
+    background: url(public/images/banner1.jpg);
     background-size: cover;
 }
 

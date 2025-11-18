@@ -285,7 +285,7 @@ const Home = () => {
         <div className="container">
           <div className="combine_info">
             <div className="leftside">
-              <img src="src/assets/images/duck.jpg" alt="Duck" />
+              <img src="public/images/duck.jpg" alt="Duck" />
             </div>
             <div className="rightside">
               <h3 className="right_row1">Why choose us</h3>
@@ -399,7 +399,7 @@ const Home = () => {
               soluta officia! Lorem ipsum dolor, sit amet
             </p>
             <a href="https://www.youtube.com/embed/5oSjrpMBt8o?si=tagnNNYFF55Uyj-h">
-              <img src="src/assets/images/banner4.jpg" alt="Travel Banner" />
+              <img src="public/images/banner4.jpg" alt="Travel Banner" />
             </a>
           </div>
         </div>
@@ -420,7 +420,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="src/assets/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Jay Javiya</span>
@@ -436,7 +436,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="src/assets/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">yash patel</span>
@@ -452,7 +452,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="src/assets/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Bhargav Parmar</span>
@@ -468,7 +468,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="src/assets/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Zeel Borad</span>
@@ -484,7 +484,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="src/assets/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Meet Golakiya</span>
@@ -500,7 +500,7 @@ const Home = () => {
                   </p>
                   <div className="review_profile">
                     <div>
-                      <img src="src/assets/images/img_avatar.png" alt="Avatar" className="avatar" />
+                      <img src="public/images/img_avatar.png" alt="Avatar" className="avatar" />
                     </div>
                     <div>
                       <span className="profile_name">Rushi Kachhadiya</span>
