@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css'; 
 import banner4 from '../public/images/banner4.jpg'
 import duck from '../public/images/duck.jpg'
-import avatar from '../public/images/img_avatar.jpg'
+import avatar from '../public/images/img_avatar.png'
 
 
 // ------------------------------------------------------------------
