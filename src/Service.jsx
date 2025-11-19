@@ -1,10 +1,10 @@
 import React from 'react';
 import './Service.css';
 import './About.css'; 
-import image1 from './assets/serviceimg/image1.png'; 
-import image2 from './assets/serviceimg/image2.png';
-import image3 from './assets/serviceimg/image3.png';
-import image4 from './assets/serviceimg/image4.png';
+import image1 from '../public/serviceimg/image1.png'; 
+import image2 from '../public/serviceimg/image2.png';
+import image3 from '../public/serviceimg/image3.png';
+import image4 from '../public/serviceimg/image4.png';
 
 const ServiceCard = ({ number, title, description, imageSrc, layout }) => {
     const detailContent = (

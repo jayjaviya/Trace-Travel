@@ -1,5 +1,9 @@
 import React from 'react'
 import './About.css'
+import guide1 from '../public/guideimg/team1.jpg'
+import guide2 from '../public/guideimg/team2.jpg'
+import guide3 from '../public/guideimg/team3.jpg'
+import guide4 from '../public/guideimg/team4.jpg'
 
 const About = () => {
   return (
@@ -86,7 +90,7 @@ const About = () => {
             <h2>Meet Our Guides</h2>
             <div className="guides_infobox">
               <div className="guide_details">
-                <img src="src/assets/guideimg/team1.jpg" alt="Albert Cooper" />
+                <img src={guide1} alt="Albert Cooper" />
                 <p className="guide_name">Albert Cooper</p>
                 <p className="guide_position">Founder, CEO</p>
                 <div className="guide_social_site">
@@ -97,7 +101,7 @@ const About = () => {
               </div>
 
               <div className="guide_details">
-                <img src="src/assets/guideimg/team2.jpg" alt="Joseph Collins" />
+                <img src={guide2} alt="Joseph Collins" />
                 <p className="guide_name">Joseph Collins</p>
                 <p className="guide_position">Tour Manager</p>
                 <div className="guide_social_site">
@@ -108,7 +112,7 @@ const About = () => {
               </div>
 
               <div className="guide_details">
-                <img src="src/assets/guideimg/team3.jpg" alt="Ada Peter" />
+                <img src={guide3} alt="Ada Peter" />
                 <p className="guide_name"> Ada Peter</p>
                 <p className="guide_position">Travel Agent</p>
                 <div className="guide_social_site">
@@ -119,7 +123,7 @@ const About = () => {
               </div>
 
               <div className="guide_details">
-                <img src="src/assets/guideimg/team4.jpg" alt="John Harris" />
+                <img src={guide4} alt="John Harris" />
                 <p className="guide_name">John Harris</p>
                 <p className="guide_position">Tour manager</p>
                 <div className="guide_social_site">

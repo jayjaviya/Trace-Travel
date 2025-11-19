@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import './DestinationGallery.css'
 
 const imageList = [
-    { src: 'src/assets/lightbox/img1.png', alt: 'Jungle Safari' },
-    { src: 'src/assets/lightbox/img2.png', alt: 'Grate Temple' },
-    { src: 'src/assets/lightbox/img3.png', alt: 'Beach View Point' },
-    { src: 'src/assets/lightbox/img4.png', alt: 'Nature Slides' },
-    { src: 'src/assets/lightbox/img5.png', alt: 'Moutain' },
-    { src: 'src/assets/lightbox/img6.png', alt: 'Sky City' },
-    { src: 'src/assets/lightbox/img7.png', alt: 'Paraliding' },
-    { src: 'src/assets/lightbox/img8.png', alt: 'Kingdom' },
-    { src: 'src/assets/lightbox/img9.png', alt: 'City River' },
+    { src: '../lightbox/img1.png', alt: 'Jungle Safari' },
+    { src: '../lightbox/img2.png', alt: 'Grate Temple' },
+    { src: '../lightbox/img3.png', alt: 'Beach View Point' },
+    { src: '../lightbox/img4.png', alt: 'Nature Slides' },
+    { src: '../lightbox/img5.png', alt: 'Moutain' },
+    { src: '../lightbox/img6.png', alt: 'Sky City' },
+    { src: '../lightbox/img7.png', alt: 'Paraliding' },
+    { src: '../lightbox/img8.png', alt: 'Kingdom' },
+    { src: '../lightbox/img9.png', alt: 'City River' },
 ]
 
 const DestinationGallery = () => {

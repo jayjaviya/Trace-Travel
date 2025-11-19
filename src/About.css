@@ -16,7 +16,7 @@
 /* section(header) */
 
 .header{
-    background: url(src/assets/images/banner4.jpg) no-repeat center;
+    background: url(../public/images/banner4.jpg) no-repeat center;
     height: 250px;
     position: relative;
     /* background-size: 100% 400px; */
@@ -129,7 +129,7 @@
 /* section(our_history) */
 
 .our_history{
-    background-image: url(src/assets/images/banner2.jpg);
+    background-image: url(../public/images/banner2.jpg);
     margin-top: 80px;
     height: 500px;
     position: relative;
