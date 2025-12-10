@@ -1,9 +1,16 @@
 import "./About.css";
 import "./Contact.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({
     name: "",
     email: "",
     subject: "",
@@ -16,23 +23,81 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
+    
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+      valid = false;
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+      valid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+      valid = false;
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+      valid = false;
+    } else if (formData.subject.trim().length < 3) {
+      newErrors.subject = "Subject must be at least 3 characters";
+      valid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+      valid = false;
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     console.log('Form submitted:', formData);
     
-    // Save form data with a unique key to prevent overwriting
     const timestamp = new Date().getTime();
     const formKey = `contact_form_${timestamp}`;
     localStorage.setItem(formKey, JSON.stringify(formData));
     
+    alert('Form submitted successfully!');
     
-    // Here you would typically send data to an API
-    alert('Form submitted! Check console for data.');
-    
-    // Optional: Reset form after submission
     setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    
+    setErrors({
       name: "",
       email: "",
       subject: "",
@@ -47,7 +112,6 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    // Load user preferences from a DIFFERENT key
     const savedUser = localStorage.getItem('user_preferences');
     if (savedUser) {
       try {
@@ -58,56 +122,11 @@ const Contact = () => {
     }
   }, []);
 
-  // Save user preferences to a DIFFERENT key
   useEffect(() => {
     if (user.name || user.email) {
       localStorage.setItem('user_preferences', JSON.stringify(user));
     }
   }, [user]);
-
-    // Todo App State and Functions
-    const [todos, setTodos] = useState([]);
-    const [input, setInput] = useState('');
-   
-    // Load todos from localStorage on mount
-    useEffect(() => {
-      const savedTodos = localStorage.getItem('todos');
-      if (savedTodos) {
-        try {
-          setTodos(JSON.parse(savedTodos));
-        } catch (error) {
-          console.error('Error loading todos:', error);
-        }
-      }
-    }, []);
-   
-    // Save todos to localStorage whenever todos change
-    useEffect(() => {
-      localStorage.setItem('todos', JSON.stringify(todos));
-    }, [todos]);
-   
-    const addTodo = (e) => {
-      e.preventDefault();
-      if (input.trim()) {
-        const newTodo = {
-          id: Date.now(),
-          text: input,
-          completed: false
-        };
-        setTodos([...todos, newTodo]);
-        setInput('');
-      }
-    };
-   
-    const toggleTodo = (id) => {
-      setTodos(todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      ));
-    };
-   
-    const deleteTodo = (id) => {
-      setTodos(todos.filter(todo => todo.id !== id));
-    };
 
   return (
     <>
@@ -116,7 +135,6 @@ const Contact = () => {
           <h2>Contact</h2>
           <div className="header_element">
             <p className="tag_1">
-              {" "}
               <span>Home</span>
             </p>
             <i className="fa fa-arrow-right" aria-hidden="true"></i>
@@ -135,43 +153,64 @@ const Contact = () => {
             
             <form className="fill_form" onSubmit={handleSubmit}>
               <div className="fill_detail">
-                <input 
-                  type="text" 
-                  name="name"
-                  placeholder="Name" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  required 
-                />
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Email" 
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-                <input 
-                  type="text" 
-                  name="subject"
-                  placeholder="Subject" 
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
-                <input 
-                  type="text" 
-                  name="message"
-                  placeholder="Message"
-                  className="Message_detail"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
-                <a href="#" onClick={handleSubmit}>
+                {/* Name Input */}
+                <div className="input-wrapper">
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={errors.name ? "error-border" : ""}
+                  />
+                  {errors.name && <span className="error-message">{errors.name}</span>}
+                </div>
+                
+                {/* Email Input */}
+                <div className="input-wrapper">
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Email" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={errors.email ? "error-border" : ""}
+                  />
+                  {errors.email && <span className="error-message">{errors.email}</span>}
+                </div>
+                
+                {/* Subject Input */}
+                <div className="input-wrapper">
+                  <input 
+                    type="text" 
+                    name="subject"
+                    placeholder="Subject" 
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className={errors.subject ? "error-border" : ""}
+                  />
+                  {errors.subject && <span className="error-message">{errors.subject}</span>}
+                </div>
+                
+                {/* Message Input */}
+                <div className="input-wrapper">
+                  <input 
+                    type="text" 
+                    name="message"
+                    placeholder="Message"
+                    className={`Message_detail ${errors.message ? "error-border" : ""}`}
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                  {errors.message && <span className="error-message">{errors.message}</span>}
+                </div>
+                
+                {/* Submit Button */}
+                <button type="submit" className="submit-btn">
                   <span>Send Message</span>
-                </a>
+                </button>
               </div>
+              
               <div className="Other_detail">
                 <div className="other_detail_rightside">
                   <div>
@@ -209,51 +248,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      <section className="todo-app-section">
-        <div className="container">
-          <div className="todo-app-container">
-            <h2>Todo App with LocalStorage</h2>
-            <form onSubmit={addTodo} className="todo-form">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Add a todo..."
-                className="todo-input"
-              />
-              <button type="submit" className="todo-add-btn">Add</button>
-            </form>
-            
-            <ul className="todo-list">
-              {todos.map(todo => (
-                <li key={todo.id} className="todo-item">
-                  <input
-                    type="checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleTodo(todo.id)}
-                    className="todo-checkbox"
-                  />
-                  <span className={`todo-text ${todo.completed ? 'completed' : ''}`}>
-                    {todo.text}
-                  </span>
-                  <button onClick={() => deleteTodo(todo.id)} className="todo-delete-btn">
-                    Delete
-                  </button>
-                </li>
-              ))}
-            </ul>
-            
-            <div className="todo-stats">
-              <p>Total: {todos.length} | Completed: {todos.filter(t => t.completed).length}</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
-
-
 
 export default Contact;

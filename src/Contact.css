@@ -46,20 +46,74 @@
     width: 800px;
     font-size: 20px;
     font-family: 'Castoro', serif;
+    transition: all 0.3s ease;
 }
 
-.fill_detail a {
+/* Validation Styles */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    font-family: 'Castoro', serif;
+}
+
+.error-border {
+    border: 2px solid #ff0000 !important;
+    background-color: rgba(255, 0, 0, 0.05) !important;
+}
+
+.error-border:focus {
+    outline: none;
+    border-color: #ff0000 !important;
+}
+
+/* Button Styles */
+.submit-btn {
     text-decoration: none;
     text-align: right;
     margin-top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    align-self: flex-end;
+    padding: 0;
+    font-family: inherit;
 }
-.fill_detail a span{
+
+.submit-btn span {
     text-decoration: none;
     font-size: 20px;
     padding: 10px 20px;
     background-color: #ffa127;
     color: aliceblue;
     border-radius: 10px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-family: 'Castoro', serif;
+}
+
+.submit-btn:hover span {
+    background-color: #e6911f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230, 145, 31, 0.3);
+}
+
+.submit-btn:active span {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(230, 145, 31, 0.3);
+}
+
+.submit-btn:disabled span {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 input[type="text"][placeholder="Message"] {
@@ -105,30 +159,27 @@ input[type="text"][placeholder="Message"] {
     color: #fb8500;
 }
 
+/* Responsive Design */
 @media (min-width: 1024px) and (max-width: 1250px){
-    
+    .fill_detail input {
+        padding: 20px;
+        background-color: rgba(147, 107, 232, 0.05);
+        border: none;
+        border-radius: 10px;
+        width: 600px;
+        font-size: 20px;
+        font-family: 'Castoro', serif;
+    }
 
-.fill_detail input {
-    padding: 20px;
-    background-color: rgba(147, 107, 232, 0.05);
-    border: none;
-    border-radius: 10px;
-    width: 600px;
-    font-size: 20px;
-    font-family: 'Castoro', serif;
-}
-
-.Other_detail{
-    gap: 60px;
-}
+    .Other_detail{
+        gap: 60px;
+    }
 }
 
 @media (min-width: 940px) and (max-width: 1023px){
-    
     .fill_detail input{
         width: 500px;
     }
-    
 }
 
 @media (max-width: 939px){
@@ -147,123 +198,17 @@ input[type="text"][placeholder="Message"] {
         width: 100%;
     }
 
-    .fill_detail a{
+    .submit-btn {
         text-align: left;
+        align-self: flex-start;
     }
 
     .Other_detail{
-        margin-top: 50px ;
+        margin-top: 50px;
         gap: 50px;
     }
+    
+    .error-message {
+        font-size: 12px;
+    }
 }
-
-
-/* Todo App Styles */
-.todo-app-section {
-    padding: 50px 0;
-    background-color: #f8f9fa;
-  }
-  
-  .todo-app-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .todo-app-container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  
-  .todo-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .todo-input {
-    flex: 1;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .todo-input:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  .todo-add-btn {
-    padding: 12px 24px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .todo-add-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .todo-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .todo-item {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-    gap: 10px;
-  }
-  
-  .todo-item:last-child {
-    border-bottom: none;
-  }
-  
-  .todo-checkbox {
-    margin-right: 10px;
-    transform: scale(1.2);
-  }
-  
-  .todo-text {
-    flex: 1;
-    font-size: 16px;
-  }
-  
-  .todo-text.completed {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  .todo-delete-btn {
-    padding: 8px 16px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .todo-delete-btn:hover {
-    background-color: #c82333;
-  }
-  
-  .todo-stats {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    color: #666;
-    font-weight: bold;
-  }
