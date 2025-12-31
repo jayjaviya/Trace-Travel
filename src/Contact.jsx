@@ -12,22 +12,53 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   // Handle input changes
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ""
+      });
+    }
+  };
+
+  // Validate form
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email";
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Check required fields
-    if (!formData.name || !formData.email || !formData.message) {
-      setMessage("❌ Please fill Name, Email, and Message");
+    if (!validateForm()) {
+      setMessage("❌ Please fix the errors above");
       return;
     }
 
@@ -50,26 +81,17 @@ const Contact = () => {
         setMessage("✅ Form submitted! Data saved to MongoDB.");
         // Clear form
         setFormData({ name: "", email: "", subject: "", message: "" });
+        // Clear errors
+        setErrors({});
       } else {
         setMessage("❌ Error: " + result.message);
       }
       
     } catch (error) {
-      setMessage("❌ Cannot connect to backend. Make sure it's running!");
+      setMessage("❌ Cannot connect to backend. Make sure it's running on port 2000!");
       console.error("Error:", error);
     } finally {
       setLoading(false);
-    }
-  };
-
-  // Test backend connection
-  const testBackend = async () => {
-    try {
-      const response = await fetch('http://localhost:2000/test');
-      const result = await response.json();
-      alert("✅ Backend is working: " + result.message);
-    } catch (error) {
-      alert("❌ Backend not running. Start it first!");
     }
   };
 
@@ -92,20 +114,6 @@ const Contact = () => {
             <div className="contact_title">
               <h4>Find us</h4>
               <h2>Get In Touch With Us</h2>
-              <button 
-                onClick={testBackend}
-                style={{
-                  background: '#ffa127',
-                  color: 'white',
-                  border: 'none',
-                  padding: '10px 20px',
-                  borderRadius: '5px',
-                  marginTop: '10px',
-                  cursor: 'pointer'
-                }}
-              >
-                Test Backend Connection
-              </button>
             </div>
             
             {/* Message Display */}
@@ -117,23 +125,31 @@ const Contact = () => {
             
             <form className="fill_form" onSubmit={handleSubmit}>
               <div className="fill_detail">
-                <input 
-                  type="text" 
-                  name="name"
-                  placeholder="Name *" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  disabled={loading}
-                />
+                <div className="input-wrapper">
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Name *" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    disabled={loading}
+                    className={errors.name ? "error-border" : ""}
+                  />
+                  {errors.name && <span className="error-message">{errors.name}</span>}
+                </div>
                 
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Email *" 
-                  value={formData.email}
-                  onChange={handleChange}
-                  disabled={loading}
-                />
+                <div className="input-wrapper">
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Email *" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={loading}
+                    className={errors.email ? "error-border" : ""}
+                  />
+                  {errors.email && <span className="error-message">{errors.email}</span>}
+                </div>
                 
                 <input 
                   type="text" 
@@ -144,15 +160,18 @@ const Contact = () => {
                   disabled={loading}
                 />
                 
-                <input 
-                  type="text" 
-                  name="message"
-                  placeholder="Message *"
-                  className="Message_detail"
-                  value={formData.message}
-                  onChange={handleChange}
-                  disabled={loading}
-                />
+                <div className="input-wrapper">
+                  <input 
+                    type="text" 
+                    name="message"
+                    placeholder="Message *"
+                    className={`Message_detail ${errors.message ? "error-border" : ""}`}
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={loading}
+                  />
+                  {errors.message && <span className="error-message">{errors.message}</span>}
+                </div>
                 
                 <button type="submit" className="submit-btn" disabled={loading}>
                   <span>{loading ? "Sending..." : "Send Message"}</span>

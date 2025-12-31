@@ -1,17 +1,24 @@
-import React, { useContext, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import { ThemeContext } from './ThemeContext'; 
 
 const Header = () => {
-  
   const { theme, toggleTheme } = useContext(ThemeContext);
   const iconClass = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+  const location = useLocation(); // Get current route
+  
+  // State to track active link
+  const [activeLink, setActiveLink] = useState('/');
+
+  // Update active link when route changes
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
 
   // ------------------------------------------------------------------
   // 1. Navigation Icon Toggle
   // ------------------------------------------------------------------
-
   useEffect(() => {
     const navBtn = document.querySelector('i.fa.fa-bars');
     const navList = document.querySelector('.nav_ul');
@@ -33,9 +40,13 @@ const Header = () => {
     };
   }, []);
 
-  // ====================================================================
-  // 🎯 JSX Content
-  // ====================================================================
+  // Function to close mobile menu on link click
+  const handleLinkClick = () => {
+    const navList = document.querySelector('.nav_ul');
+    if (navList && navList.classList.contains('active')) {
+      navList.classList.remove('active');
+    }
+  };
 
   return (
     <header>
@@ -46,11 +57,51 @@ const Header = () => {
           </div>
           <div className="nav_element">
             <ul className="nav_ul">
-              <li><Link to="/"><span>Home</span></Link></li> 
-              <li><Link to="/about">About</Link></li> 
-              <li><Link to="/service">Services</Link></li>
-              <li><Link to="/destination">Destination</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li>
+                <Link 
+                  to="/" 
+                  onClick={() => handleLinkClick()}
+                  className={activeLink === '/' ? 'active' : ''}
+                >
+                  <span className={activeLink === '/' ? 'active-span' : ''}>Home</span>
+                </Link>
+              </li> 
+              <li>
+                <Link 
+                  to="/about" 
+                  onClick={() => handleLinkClick()}
+                  className={activeLink === '/about' ? 'active' : ''}
+                >
+                  <span className={activeLink === '/about' ? 'active-span' : ''}>About</span>
+                </Link>
+              </li> 
+              <li>
+                <Link 
+                  to="/service" 
+                  onClick={() => handleLinkClick()}
+                  className={activeLink === '/service' ? 'active' : ''}
+                >
+                  <span className={activeLink === '/service' ? 'active-span' : ''}>Services</span>
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/destination" 
+                  onClick={() => handleLinkClick()}
+                  className={activeLink === '/destination' ? 'active' : ''}
+                >
+                  <span className={activeLink === '/destination' ? 'active-span' : ''}>Destination</span>
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/contact" 
+                  onClick={() => handleLinkClick()}
+                  className={activeLink === '/contact' ? 'active' : ''}
+                >
+                  <span className={activeLink === '/contact' ? 'active-span' : ''}>Contact</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

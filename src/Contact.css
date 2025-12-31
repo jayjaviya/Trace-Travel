@@ -36,6 +36,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+}
+
+/* Input wrapper for error handling */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 .fill_detail input{
@@ -43,34 +51,46 @@
     background-color: rgba(147, 107, 232, 0.05);
     border: none;
     border-radius: 10px;
-    width: 800px;
-    font-size: 20px;
+    width: 100%;
+    font-size: 18px;
     font-family: 'Castoro', serif;
     transition: all 0.3s ease;
+    outline: none;
 }
 
-/* Validation Styles */
-.input-wrapper {
-    position: relative;
-    width: 100%;
+/* Focus state for inputs */
+.fill_detail input:focus {
+    background-color: rgba(147, 107, 232, 0.08);
+    box-shadow: 0 0 0 2px rgba(147, 107, 232, 0.1);
 }
 
+/* Message textarea specific styling */
+input.Message_detail {
+    min-height: 120px;
+    resize: vertical;
+    padding-bottom: 20px;
+}
+
+/* Error state styling */
+.fill_detail input.error-border {
+    border: 2px solid #ff0000 !important;
+    background-color: rgba(255, 0, 0, 0.05) !important;
+}
+
+.fill_detail input.error-border:focus {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
+}
+
+/* Error message styling */
 .error-message {
     color: #ff0000;
     font-size: 14px;
     margin-top: 5px;
     display: block;
     font-family: 'Castoro', serif;
-}
-
-.error-border {
-    border: 2px solid #ff0000 !important;
-    background-color: rgba(255, 0, 0, 0.05) !important;
-}
-
-.error-border:focus {
-    outline: none;
-    border-color: #ff0000 !important;
+    padding-left: 5px;
+    font-weight: 400;
 }
 
 /* Button Styles */
@@ -84,18 +104,21 @@
     align-self: flex-end;
     padding: 0;
     font-family: inherit;
+    width: auto;
 }
 
 .submit-btn span {
     text-decoration: none;
-    font-size: 20px;
-    padding: 10px 20px;
+    font-size: 18px;
+    padding: 12px 30px;
     background-color: #ffa127;
     color: aliceblue;
     border-radius: 10px;
     display: inline-block;
     transition: all 0.3s ease;
     font-family: 'Castoro', serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .submit-btn:hover span {
@@ -114,88 +137,137 @@
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+    opacity: 0.7;
 }
 
-input[type="text"][placeholder="Message"] {
-    padding-bottom: 70px;
+.submit-btn:disabled:hover span {
+    transform: none;
+    box-shadow: none;
 }
 
+/* Form layout */
 .fill_form{
     display: flex;
     margin-top: 50px;
-    gap: 30px;
+    gap: 60px;
+    align-items: flex-start;
 }
 
 .Other_detail{
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 40px;
+    flex-shrink: 0;
+    min-width: 300px;
 }
 
 .other_detail_rightside{
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    align-items: flex-start;
 }
 
 .other_detail_rightside h2{
-    font-size: 25px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 500;
     line-height: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-family: 'Castoro', serif;
+    color: #333;
 }
 
 .other_detail_rightside p{
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
-    color: #777777;
+    color: #666;
     margin-top: 3px;
 }
 
 .other_detail_rightside i{
-    font-size: 25px;
+    font-size: 24px;
     color: #fb8500;
+    margin-top: 5px;
+}
+
+/* Message Styles */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #c3e6cb;
+    animation: fadeIn 0.5s ease-in;
+    font-family: 'Castoro', serif;
+}
+
+.error-message-alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #f5c6cb;
+    animation: fadeIn 0.5s ease-in;
+    font-family: 'Castoro', serif;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
 @media (min-width: 1024px) and (max-width: 1250px){
-    .fill_detail input {
-        padding: 20px;
-        background-color: rgba(147, 107, 232, 0.05);
-        border: none;
-        border-radius: 10px;
-        width: 600px;
-        font-size: 20px;
-        font-family: 'Castoro', serif;
+    .fill_form{
+        gap: 40px;
     }
-
+    
     .Other_detail{
-        gap: 60px;
+        min-width: 280px;
     }
 }
 
 @media (min-width: 940px) and (max-width: 1023px){
-    .fill_detail input{
-        width: 500px;
+    .fill_form{
+        gap: 30px;
+    }
+    
+    .Other_detail{
+        min-width: 250px;
+    }
+    
+    .other_detail_rightside h2 {
+        font-size: 20px;
+    }
+    
+    .other_detail_rightside p {
+        font-size: 15px;
     }
 }
 
 @media (max-width: 939px){
-    .fill_detail input{
-        width: 300px;
-    }
-}
-
-@media (max-width: 660px){
     .fill_form{
         display: flex;
         flex-direction: column;
+        gap: 40px;
     }
 
     .fill_detail input{
-        width: 100%;
+        font-size: 16px;
+        padding: 16px;
     }
 
     .submit-btn {
@@ -203,60 +275,56 @@ input[type="text"][placeholder="Message"] {
         align-self: flex-start;
     }
 
+    .submit-btn span {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
     .Other_detail{
-        margin-top: 50px;
-        gap: 50px;
+        margin-top: 0;
+        gap: 30px;
+        min-width: 100%;
     }
     
     .error-message {
-        font-size: 12px;
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 0 30px;
     }
 }
 
-
-/* Message Styles */
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  text-align: center;
-  font-size: 16px;
-  border: 1px solid #c3e6cb;
-  animation: fadeIn 0.5s ease-in;
-}
-
-.error-message-alert {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  text-align: center;
-  font-size: 16px;
-  border: 1px solid #f5c6cb;
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Loading state for button */
-.submit-btn:disabled span {
-  background-color: #cccccc !important;
-  cursor: not-allowed !important;
-}
-
-.submit-btn:disabled:hover span {
-  transform: none !important;
-  box-shadow: none !important;
+@media (max-width: 660px){
+    .contact_title h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    
+    .contact_title h4 {
+        font-size: 16px;
+    }
+    
+    .fill_detail {
+        gap: 15px;
+    }
+    
+    .fill_detail input {
+        padding: 14px;
+        font-size: 15px;
+    }
+    
+    input.Message_detail {
+        min-height: 100px;
+    }
+    
+    .success-message,
+    .error-message-alert {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
 }

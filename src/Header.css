@@ -59,9 +59,19 @@
 
 .nav_ul a:hover::before{
     width: 100%;
-
 }
-.nav_ul a span{
+
+/* Active link styling */
+.nav_ul a.active {
+    color: #fb8500;
+}
+
+.nav_ul a.active::before {
+    width: 100%;
+}
+
+/* Span inside active link */
+.nav_ul a .active-span {
     color: #fb8500;
 }
 
@@ -175,49 +185,54 @@ i.fa.fa-bars{
     background-color: transparent; 
 }
 
+/* Dark Theme Styles */
+body.dark {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark .navbar {
+    background-color: #1a1a1a;
+}
+
+body.dark .nav_ul a {
+    color: #f0f0f0;
+}
+
+body.dark .nav_ul a:hover {
+    color: #ffb158;
+}
+
+body.dark .nav_ul a::before {
+    background-color: #ffb158;
+}
+
+body.dark .nav_ul a.active {
+    color: #ffb158;
+}
+
+body.dark .nav_ul a.active::before {
+    background-color: #ffb158;
+}
+
+body.dark .nav_ul a .active-span {
+    color: #ffb158;
+}
+
+body.dark i.fa.fa-bars {
+    color: #ffb158;
+}
+
+body.dark .dark-mode-toggle {
+    color: #ffb158;
+}
+
 body.dark .dark-mode-toggle i {
     color: #ffb158;
 }
 
-body.dark .dark-mode-toggle:hover {
-    background-color: transparent; 
-}
-
-
-/* Add these rules to your Header.css file */
-
-/* Dark Theme Styles */
-body.dark {
-    background-color: #1a1a1a; /* Dark background for the whole page */
-    color: #f0f0f0;            /* Light text color for the whole page */
-}
-
-body.dark .navbar {
-    background-color: #1a1a1a; /* Slightly lighter dark for the navbar background */
-}
-
-body.dark .nav_ul a {
-    color: #f0f0f0; /* White/light gray links */
-}
-
-body.dark .nav_ul a:hover {
-    color: #ffb158; /* Orange hover color */
-}
-
-body.dark .nav_ul a::before {
-    background-color: #ffb158; /* Orange underline on hover */
-}
-
-body.dark i.fa.fa-bars {
-    color: #ffb158; /* Orange color for the hamburger icon */
-}
-
-body.dark .dark-mode-toggle {
-    color: #ffb158; /* Orange color for the toggle icon */
-}
-
-body.dark .navbar p{
-    color: #ffb158; /* Ensure logo/title stays orange */
+body.dark .navbar p {
+    color: #ffb158;
 }
 
 body.dark .about_read_more{
@@ -251,6 +266,14 @@ body.dark .fill_detail input{
 /* Mobile Nav Menu in Dark Mode */
 @media (max-width: 768px){
     body.dark .nav_ul {
-        background-color: #242424; /* Dark background for the mobile menu */
+        background-color: #242424;
+    }
+    
+    body.dark .nav_ul a.active {
+        color: #ffb158;
+    }
+    
+    body.dark .nav_ul a .active-span {
+        color: #ffb158;
     }
 }

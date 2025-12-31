@@ -22,17 +22,17 @@ const DestinationGallery = () => {
       } catch (error) {
         console.error('Network error:', error);
         // Keep using hardcoded images as fallback
-        setImages([
-          { src: '../lightbox/img1.png', alt: 'Jungle Safari' },
-          { src: '../lightbox/img2.png', alt: 'Great Temple' },
-          { src: '../lightbox/img3.png', alt: 'Beach View Point' },
-          { src: '../lightbox/img4.png', alt: 'Nature Slides' },
-          { src: '../lightbox/img5.png', alt: 'Mountain' },
-          { src: '../lightbox/img6.png', alt: 'Sky City' },
-          { src: '../lightbox/img7.png', alt: 'Paragliding' },
-          { src: '../lightbox/img8.png', alt: 'Kingdom' },
-          { src: '../lightbox/img9.png', alt: 'City River' },
-        ]);
+        // setImages([
+        //   { src: '../lightbox/img1.png', alt: 'Jungle Safari' },
+        //   { src: '../lightbox/img2.png', alt: 'Great Temple' },
+        //   { src: '../lightbox/img3.png', alt: 'Beach View Point' },
+        //   { src: '../lightbox/img4.png', alt: 'Nature Slides' },
+        //   { src: '../lightbox/img5.png', alt: 'Mountain' },
+        //   { src: '../lightbox/img6.png', alt: 'Sky City' },
+        //   { src: '../lightbox/img7.png', alt: 'Paragliding' },
+        //   { src: '../lightbox/img8.png', alt: 'Kingdom' },
+        //   { src: '../lightbox/img9.png', alt: 'City River' },
+        // ]);
       } finally {
         setLoading(false);
       }

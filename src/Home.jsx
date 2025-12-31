@@ -401,7 +401,7 @@ const Home = () => {
               commodi velit iusto voluptates labore ratione consectetur doloremque
               soluta officia! Lorem ipsum dolor, sit amet
             </p>
-            <a href="https://www.youtube.com/embed/5oSjrpMBt8o?si=tagnNNYFF55Uyj-h">
+            <a href="https://youtu.be/UYmvFzDuO5k?si=H5CG3VeLyU96IXDC">
               <img src={banner4} alt="Travel Banner" />
             </a>
           </div>
